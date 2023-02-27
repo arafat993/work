@@ -9,7 +9,7 @@
     $btn_url = $_POST['btn_url'];
 
 
-    $insert = "INSERT INTO tbl_banner (name, descrip, btn, btn_url) VALUES ('$name', '$descrip', '$btn_text', '$btn_url')";
+    $insert = "INSERT INTO tbl_banner2 (name, descrip, tbl_text, tbl_url) VALUES ('$name', '$descrip', '$btn_text', '$btn_url')";
 
     $reqult = mysqli_query($db_connection, $insert);
 

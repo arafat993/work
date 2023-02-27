@@ -462,7 +462,18 @@
                                 <ul class="sub-menu" aria-expanded="true">
                                   <li><a href="banner.php">Add New Banner</a></li>
                                 </ul>
-                            </li>    
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-user"></i>
+                                    <span key="t-layouts">About</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                  <li><a href="about.php">Add New About</a></li>
+                                </ul>
+                            </li>
+
                           </div>
                           <!-- Sidebar -->
                       </div>

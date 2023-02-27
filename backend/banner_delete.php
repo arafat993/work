@@ -3,7 +3,7 @@
 
    $getid = $_GET['id'];
 
-   $delete = "DELETE FROM tbl_banner WHERE id = $getid";
+   $delete = "DELETE FROM tbl_banner2 WHERE id = $getid";
    $reqult = mysqli_query($db_connection, $delete);
 
    header('location:banner.php');

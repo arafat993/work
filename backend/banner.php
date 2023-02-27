@@ -2,6 +2,7 @@
     include 'header.php';
 ?>
 
+<div class="main-content">
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">
@@ -12,16 +13,18 @@
                     </div>
                     <div class="card-body">
                         <table class="table table-striped">
-                            <tr>
-                                <th>SL</th>
-                                <th>Name</th>
-                                <th>Descrip</th>
-                                <th>Image</th>
-                                <th>Btn Text</th>
-                                <th>Btn Url</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Name</th>
+                                    <th>Descrip</th>
+                                    <th>Image</th>
+                                    <th>Btn Text</th>
+                                    <th>Btn Url</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>    
 
 <?php
     $select = "SELECT * FROM tbl_banner2";
@@ -39,10 +42,10 @@
                                     <img src="../frontend/img/bg/hero-img.jpg" width="80" alt="">
                                 </td>
                                 <td>
-                                    <p><?= $result_part['btn']; ?></p>
+                                    <p><?= $result_part['tbl_text']; ?></p>
                                 </td>
                                 <td>
-                                    <p><?= $result_part['btn']; ?></p>
+                                    <p><?= $result_part['tbl_url']; ?></p>
                                 </td>
                                 <td>
                                     <a href="banner_status.php?id=<?= $result_part['id']; ?>" class="btn btn-<?= ($result_part['status'] == 1) ? 'primary' : 'secondary' ?>">
@@ -110,9 +113,8 @@
             </div>
         </div>
     </div>
-    <!-- container-fluid -->
 </div>
-<!-- End Page-content -->
+
 
 <?php
     include 'footer.php';
