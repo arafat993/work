@@ -2,6 +2,7 @@
     include 'header.php';
 ?>
 
+
 <div class="main-content">
 <div class="page-content">
     <div class="container-fluid">
@@ -17,34 +18,48 @@
 							<tr>
 								<th>SL</th>
 								<th>Name</th>
-								<th>Descrip</th>
-								<th>Image</th>
-								<th>Btn Text</th>
-								<th>Btn Url</th>
+								<th>Country</th>
+								<th>Freelace</th>
+								<th>University</th>
+								<th>Languges</th>
+                                <th>Image</th>
 								<th>Status</th>
 								<th>Action</th>
 							</tr>
 						</thead>
+<?php
+    foreach($select_reqult AS $part=> $reqult_tokra){
+?>
+
                         <tr>
-                                <td>01</td>
-                                <td>nans</td>
-                                <td>sdfdf</td>
+                                <td><?= $part+1 ?></td>
+                                <td><?= $reqult_tokra['name']; ?></td>
+                                <td><?= $reqult_tokra['country']; ?></td>
                                 <td>
                                     <img src="../frontend/img/bg/about-img.jpg" width="80" alt="">
                                 </td>
                                 <td>
-                                    <p>sdfdsf</p>
+                                    <p><?= $reqult_tokra['freelance']; ?></p>
                                 </td>
                                 <td>
-                                    <p>dsfsdf</p>
+                                    <p><?= $reqult_tokra['university']; ?></p>
                                 </td>
                                 <td>
-                                    <a class="btn btn-info" href="">Deactive</a>
+                                    <p><?= $reqult_tokra['languages']; ?></p>
                                 </td>
                                 <td>
-									<a class="btn btn-danger" href="">Delete</a>
+                                    <a href="about_status.php?id=<?= $reqult_tokra['id']; ?>" class="btn btn-<?= ($reqult_tokra['status'] == 1) ? 'primary' : 'secondary' ?>">
+                                        <?= ($reqult_tokra['status'] == 1) ? 'Active' : 'Deactive' ?>
+                                    </a>
+                                </td>
+                                <td>
+<?php
+    if($reqult_tokra['status'] == 0){ ?>
+        <a href="about_delete.php?id=<?= $reqult_tokra['id']; ?>" class="btn btn-danger">Delete</a>
+<?php  } ?> 
 								</td>
-                            </tr>             
+                            </tr>
+<?php } ?>
                     </table>
                 </div>
               </div>
@@ -59,15 +74,35 @@
                         <h3>Add Content</h3>
                     </div>
                     <div>
-                        <form action="banner_post.php" method="POST">
+                        <form action="about_post.php" method="POST">
                             <div class="mb-3">
                                 <label for="name">Enter Name</label>
                                 <input type="text" name="name" placeholder="Enter Your Name" class="form-control" id="name">
                             </div>
 
                             <div class="mb-3">
-                                <label for="descrip">Enter Description</label>
-                                <input type="text" name="descrip" placeholder="Enter Your Description" class="form-control" id="descrip">
+                                <label for="country">Enter Country</label>
+                                <input type="text" name="country" placeholder="Enter Your Country" class="form-control" id="country">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="freelance">Enter Freelance</label>
+                                <input type="text" name="freelance" placeholder="Enter Your Freelance" class="form-control" id="freelance">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="university">Enter Uniersity</label>
+                                <input type="text" name="university" placeholder="Enter Your University" class="form-control" id="university">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="languages">Enter Languages</label>
+                                <input type="Url" name="languages" placeholder="Enter Your Languages" class="form-control" id="languages">
+                            </div>
+
+                            iv class="mb-3">
+                                <label for="address">Enter Address :</label>
+                                <input type="text" name="address" placeholder="Enter Your Address" class="form-control" id="address">
                             </div>
 
                             <div class="mb-3">
@@ -75,16 +110,6 @@
                                 <input type="text" name="image" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" class="form-control" id="name">
 
                                 <img src="../frontend/img/bg/hero-img.jpg" alt="" width="80" id="Blah">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="btn_text">Enter Button text</label>
-                                <input type="text" name="btn_text" placeholder="Enter Button text" class="form-control" id="btn_text">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="btn_url">Enter Button Url</label>
-                                <input type="Url" name="btn_url" placeholder="Enter Button Url" class="form-control" id="btn_url">
                             </div>
                             
                             <div>
